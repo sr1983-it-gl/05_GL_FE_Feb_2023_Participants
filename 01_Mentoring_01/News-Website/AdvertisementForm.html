@@ -1,0 +1,250 @@
+
+<html>
+
+  <head>
+
+    <style>
+
+      body{
+       
+        background-color: lightyellow;
+      }
+
+      header {
+        border-radius: 7px;
+        background-color: plum;
+
+        text-align: center;
+      }
+
+      section {
+        position: absolute;
+        top: 5%;
+        left: 30%;
+        width: 40%;
+      }
+
+      p, h1 {
+        padding: 10px;
+      }
+
+      header p {
+        text-align: left;
+      }
+
+      header p::first-line {
+        color: blueviolet;
+        font-weight: bold;
+      }
+
+      article h3::after{
+        content: "*";
+        color: red;
+      }
+
+      article {
+        border: 1px solid blue; 
+        border-radius: 7px;
+        background-color: white;
+
+        font-family: Helvetica;
+        letter-spacing: 2px;
+
+        padding: 15px;
+
+        margin-top: 15px;
+      }
+
+      input {
+        border: none;
+
+        border-bottom: 1px solid black;
+        width: 250px;
+      }
+
+      input:focus {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid black;
+      }
+
+      #district, label{
+        font-size: 16px;
+        font-family: Helvetica;
+
+        height: 50px;
+      }
+
+      input[name="adType"] {
+        height: 20px;
+        width: 20px;
+      }
+
+      button {
+        color: white;
+        background-color: mediumorchid;
+        border: none;
+        border-radius: 5px;
+
+        font-size: 20px;
+        height: 35px;
+        width: 100px;
+
+        margin: 30px;
+        float: right;
+      }
+
+      footer{
+        margin-top: 100px;
+        margin-bottom: 100px;
+      }
+
+    </style>
+  </head>
+
+  <section>
+
+  <body>
+
+    <header>
+
+      <h1>Advertisement Form</h1>
+
+      <p>
+        Read below instructions before proceeding: <br>
+        Make sure you fill all the fileds where * is provided
+      </p>
+    </header>
+
+    <form>
+
+      <article>
+          <h3 id="company">Company Name</h3>
+          <input type="text" required>
+      </article>
+
+      <article>
+        <h3>Your Name</h3>
+        <input type="text" required>
+      </article>
+
+      <article>
+        <h3>Phone Number</h3>
+        <input type="number" min="6666666666" max="9999999999" required>
+      </article>
+
+      <article>
+        <h3>Email Address</h3>
+        <input type="email" required>
+      </article>
+
+      <article>
+        <h2>Company Address     </h2>
+        
+        <h3>H:No</h3>
+        <input type="text" required>
+
+        <h3>Street</h3>
+        <input type="text" required>
+
+        <h3>Area</h3>
+        <input type="text" required>
+
+        <h3>District</h3>
+        <select id="district">
+          <option>Choose</option>
+          <option value="BANGALORE_URBAN">Bangalore Urban</option>
+          <option value="BANGALORE_RURAL">Bangalore Rural</option>
+          <option value="RAMNAGAR">Ramnagar</option>
+        </select>
+
+      </article>
+
+      <article>
+        <h3>Type of Advertisement</h3>
+
+        <input type="radio" name="adType" id="adTypeImage" value="ADTYPE_IMAGE">
+        <label for="adTypeImage">Image</label>
+
+        <input type="radio" name="adType" id="adTypeVideo" value="ADTYPE_VIDEO">
+        <label for="adTypeVideo">Video</label>
+
+      </article>
+
+      <article>
+        <h3>Advertisement Area        </h3>
+
+        <p>Check atleast one box without fail
+        </p>
+        <input type="checkbox" name="advertisementArea" id="adAreaSide" value="AD_AREA_SIDE">
+        <label for="adAreaSide">Side of the article</label>
+
+        <input type="checkbox" name="advertisementArea" id="adAreaBetween" value="AD_AREA_BETWEEN">
+        <label for="adAreaBetween">Between the article</label>
+
+        <input type="checkbox" name="advertisementArea" id="adAreaEnd" value="AD_AREA_END">
+        <label for="adAreaEnd">End of the article</label>
+
+      </article>
+
+      <article>
+        <h3>Advertisement Duration        </h3>
+
+        <label>Start Date:</label>
+        <input type="date">
+        <br>
+
+        <label>End Date:</label>
+        <input type="date">
+
+      </article>      
+
+      <article>
+        <h3>Total Cost</h3>
+
+        <p>Rs 10000</p>
+
+        <label>Start Date:</label>
+        <input type="date">
+        <br>
+
+        <label>End Date:</label>
+        <input type="date">
+
+      </article>      
+
+      <article>
+        <h3>Describe your Advertisement</h3>
+
+        <textarea rows="10" cols="35"></textarea>
+      </article>    
+
+      <article>
+        <h3>Upload File</h3>
+
+        <input type="file">
+      </article>    
+
+      <button>
+        Submit
+      </button>
+
+      <button>
+        Reset
+      </button>
+      
+    </form>
+
+    <footer>
+      <p>
+        This form is developed by GL Team.
+        <br>
+        Only Learners of Great Learning can use this form
+      </p>
+    </footer>
+
+  </body>
+
+  </section>
+  
+</html>
