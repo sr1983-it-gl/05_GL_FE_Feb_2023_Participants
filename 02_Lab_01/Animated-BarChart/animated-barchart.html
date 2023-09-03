@@ -90,6 +90,11 @@
     animation-fill-mode: forwards;
   }
 
+  .bar-with-percentage-value{
+    display: inline-block;
+    text-align: center;
+  }
+
 </style>
 
 
@@ -98,12 +103,17 @@
 
   <div id="bar-chart">
 
-    <div id="bar1" class="bar">
+    <div class="bar-with-percentage-value">
 
-      <div class="animation-bar" id="animation-bar-1">
+      <div id="bar1" class="bar">
+        <div class="animation-bar" id="animation-bar-1">
+        </div>
+      </div>  
 
-      </div>
+      <br/>
+      30%
     </div>
+
 
     <div id="bar2" class="bar">
 
