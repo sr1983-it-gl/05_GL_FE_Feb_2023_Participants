@@ -47,13 +47,15 @@ const question5 = new Question(5, "Java Script is a ", [answerLanguage, answerPr
 function QuizApplication(questionAnswersObj){
 
   this.questionAnswersObj = questionAnswersObj;
+  this.pageIndex = 0;
 
-  // Support for pageIndex = 0
+  this.isLastQuestionAnswerPair = function() {
 
-
-  isLastQuestionAnswerPair(){
-
-    // Write down the logic
+    if (this.pageIndex == (this.questionAnswersObj.length - 1)){
+      return true;
+    }else{
+      return false;
+    }
   }
 
 }
