@@ -163,6 +163,15 @@ function QuizApplication(questionAnswersObj){
 
   this.displayProgressSection = function(){
 
+    const progressElement = document.getElementById("progress");
+
+    const qaPairObj = this.questionAnswersObj[this.pageIndex]
+
+    
+    const progressText
+      = `Question ${qaPairObj.questionNo} of ${questionAnswersObj.length}`
+    progressElement.innerText = progressText
+
   }
   // DisplayprogressSection
 
