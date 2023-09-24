@@ -92,6 +92,8 @@ function QuizApplication(questionAnswersObj){
   this.questionAnswersObj = questionAnswersObj;
   this.pageIndex = 0;
 
+  // declare resultObj
+
   this.load = function(){
 
     this.attachListeners();
@@ -116,8 +118,22 @@ function QuizApplication(questionAnswersObj){
 
         const target = event.currentTarget
         console.log('Button is clicked ' + target);
+
+        // Take the user-selected text - Functions
+        // Get the question object
+        // call the method - userAnserCorrect
+          // YES
+            // resultObj.incrementScore
+          // NO
+            // 
+            
+        // next()
       }
     }
+  }
+
+  this.next() = function() {
+    
   }
 
   this.displayQuizPage = function(){
