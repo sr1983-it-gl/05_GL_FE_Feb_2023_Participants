@@ -6,8 +6,10 @@ function Answer(answerText){
 
 function Question(questionNo, questionText, answerChoices, rightAnswer){
 
-  // Code
-
+  this.questionNo = questionNo;
+  this.questionText = questionText;
+  this.answerChoices = answerChoices;
+  this.rightAnswer = rightAnswer;
 }
 
 const answerFunctions = new Answer("Functions");
@@ -41,3 +43,14 @@ const answerProgrammingLanguage = new Answer("Programming Language");
 const answerDevelopment = new Answer("Development");
 
 const question5 = new Question(5, "Java Script is a ", [answerLanguage, answerProgrammingLanguage, answerDevelopment, answerAll], answerProgrammingLanguage)
+
+function QuizApplication(questionAnswersObj){
+
+  this.questionAnswersObj = questionAnswersObj;
+
+}
+
+const javascriptQuizApp = new QuizApplication(
+  []
+  // Code - Pass all the 5 question objects
+);
