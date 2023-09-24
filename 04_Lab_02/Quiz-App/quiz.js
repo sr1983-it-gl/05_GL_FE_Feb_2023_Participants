@@ -119,13 +119,22 @@ function QuizApplication(questionAnswersObj){
     }
   }
 
-  // addListeners
-    // 4
-    // for [0 4]
-      // button -> getElementById("btn" + index)
-      // buton.onclick(){
-          // console.log('clicked')
-      // }
+  // DisplayQuizPage
+    // DisplayQASection
+    // DisplayprogressSection
+  
+  // DisplayQASection
+    // access to qaPairObject [questionText, answerChoicesText]
+    // Question text
+      // get reference to paragraph 
+      // update the iinner-text property
+
+    // Answers
+      // for 
+          // get referecne to "choice" + index
+          // update inner-text for span element
+
+  // DisplayprogressSection
 
   this.isLastQuestionAnswerPair = function() {
 
