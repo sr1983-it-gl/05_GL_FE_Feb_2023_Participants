@@ -44,10 +44,27 @@ const answerDevelopment = new Answer("Development");
 
 const question5 = new Question(5, "Java Script is a ", [answerLanguage, answerProgrammingLanguage, answerDevelopment, answerAll], answerProgrammingLanguage)
 
-function QuizResult{
+function QuizResult (questionAnswersObj){
 
+  this.questionAnswersObj = questionAnswersObj;
   // Score property
+  this.score = 0;
 
+  this.getScore = function() {
+    return this.score
+  }
+
+  this.incrementScore = function(){
+    this.score ++
+  }
+
+  this.calculatePercentage = function(){
+
+    // 3 
+    // (3 / 5) * 100
+    return 
+    (this.score / this.questionAnswersObj.length) * 100
+  }
 
   // Increment Score
   // Get Score
