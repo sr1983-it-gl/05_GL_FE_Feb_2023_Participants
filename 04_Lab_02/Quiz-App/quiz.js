@@ -71,6 +71,7 @@ function QuizResult (questionAnswersObj){
   }
 
   this.incrementScore = function(){
+    console.log('Score is incremented...')
     this.score ++
   }
 
@@ -90,6 +91,7 @@ function QuizResult (questionAnswersObj){
 function QuizApplication(questionAnswersObj){
 
   this.questionAnswersObj = questionAnswersObj;
+  this.quizResult = new QuizResult(this.questionAnswersObj);
   this.pageIndex = 0;
 
   // declare resultObj
@@ -108,32 +110,52 @@ function QuizApplication(questionAnswersObj){
     const answerChoices = qaPairObj.answerChoices
     console.log('Number of answer is ' + answerChoices.length);
 
+    const currentQuizAppObj = this;
+
     for (let index = 0; index < answerChoices.length; index ++){
 
       const buttonId = "btn" + index;
 
       const answerChoiceButton = document.getElementById(buttonId);
 
-      answerChoiceButton.onclick = function(event){
-
-        const target = event.currentTarget
-        console.log('Button is clicked ' + target);
-
-        // Take the user-selected text - Functions
-        // Get the question object
-        // call the method - userAnserCorrect
-          // YES
-            // resultObj.incrementScore
-          // NO
-            // 
-            
-        // next()
-      }
+      this.addEventListener(answerChoiceButton, currentQuizAppObj)
     }
   }
 
-  this.next() = function() {
-    
+
+  this.addEventListener = function(answerChoiceButton, currentQuizAppObj){
+
+    console.log("THIS 1-> " +  JSON.stringify(this))
+    // this -> Works
+
+    answerChoiceButton.onclick = function(event){
+
+      // const a = currentQuizAppObj.pageIndex
+      // console.log('A value is ' + a);
+
+      const target = event.currentTarget
+      console.log('Button is clicked ' + target);
+
+      const userSelectedAnswer = target.children[0].innerHTML;
+      console.log('User selected text ' + userSelectedAnswer)
+
+      const qaPairObj = currentQuizAppObj.questionAnswersObj[currentQuizAppObj.pageIndex]
+
+      const outcome = qaPairObj.isUserAnswerCorrect(userSelectedAnswer)
+
+      if (outcome){
+        currentQuizAppObj.quizResult.incrementScore();
+      }else{
+        // Do nothing
+      }
+
+      currentQuizAppObj.next();
+      // next()
+    }    
+  }
+
+  this.next = function() {
+
   }
 
   this.displayQuizPage = function(){
