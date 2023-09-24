@@ -10,6 +10,22 @@ function Question(questionNo, questionText, answerChoices, rightAnswer){
   this.questionText = questionText;
   this.answerChoices = answerChoices;
   this.rightAnswer = rightAnswer;
+
+  // Add support for isUserAnswerCorrect
+
+  // 'NodeJS', 'Functions', 'HTML'
+  this.isUserAnswerCorrect = function(userSelectedAnswer){
+
+    if (rightAnswer.answerText == userSelectedAnswer){
+      console.log('Correct Answer')
+      return true;
+    }else{
+      console.log('Wrong answer')
+      return false;
+    }
+
+  }
+
 }
 
 const answerFunctions = new Answer("Functions");
