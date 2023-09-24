@@ -77,10 +77,15 @@ function QuizResult (questionAnswersObj){
 
   this.calculatePercentage = function(){
 
+    console.log("questionAnswersObj" + questionAnswersObj);
+    console.log("questionAnswersObj" + this.questionAnswersObj.length);
+
+    const percentage = (this.score / this.questionAnswersObj.length) * 100;
+    console.log("Percentage " + percentage);
+
     // 3 
     // (3 / 5) * 100
-    return 
-    (this.score / this.questionAnswersObj.length) * 100
+    return percentage;
   }
 
   // Increment Score
@@ -125,7 +130,7 @@ function QuizApplication(questionAnswersObj){
 
   this.addEventListener = function(answerChoiceButton, currentQuizAppObj){
 
-    console.log("THIS 1-> " +  JSON.stringify(this))
+    // console.log("THIS 1-> " +  JSON.stringify(this))
     // this -> Works
 
     answerChoiceButton.onclick = function(event){
@@ -150,12 +155,34 @@ function QuizApplication(questionAnswersObj){
       }
 
       currentQuizAppObj.next();
-      // next()
     }    
   }
 
   this.next = function() {
 
+    if (this.isLastQuestionAnswerPair()){
+      this.displayResultPage();
+    }else{
+      this.displayNextQuizPage();
+    }
+  }
+
+  this.displayNextQuizPage = function(){
+
+    this.pageIndex ++ ;
+    this.attachListeners();
+    this.displayQuizPage();
+  }
+
+  this.displayResultPage = function(){
+
+    const quizElement = document.getElementById("quiz");
+  
+    const content = 
+      `<h1>Result </h1>
+      <h2 id='score'>Your score : ${this.quizResult.getScore()}. Percentage is ${this.quizResult.calculatePercentage()} </h2>`
+
+    quizElement.innerHTML = content;
   }
 
   this.displayQuizPage = function(){
