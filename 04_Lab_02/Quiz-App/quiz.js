@@ -48,9 +48,17 @@ function QuizApplication(questionAnswersObj){
 
   this.questionAnswersObj = questionAnswersObj;
 
+  // Support for pageIndex = 0
+
+
+  isLastQuestionAnswerPair(){
+
+    // Write down the logic
+  }
+
 }
 
 const javascriptQuizApp = new QuizApplication(
-  []
+  [question1, question2, question3, question4, question5]
   // Code - Pass all the 5 question objects
 );
