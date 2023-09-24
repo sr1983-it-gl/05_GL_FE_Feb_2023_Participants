@@ -95,6 +95,7 @@ function QuizApplication(questionAnswersObj){
   this.load = function(){
 
     this.attachListeners();
+    this.displayQuizPage();
   }
 
   this.attachListeners = function(){
@@ -119,10 +120,36 @@ function QuizApplication(questionAnswersObj){
     }
   }
 
-  // DisplayQuizPage
-    // DisplayQASection
-    // DisplayprogressSection
-  
+  this.displayQuizPage = function(){
+
+    this.displayQASection();
+    this.displayProgressSection();
+  }
+
+  this.displayQASection = function(){
+
+    const qaPairObj = 
+    this.questionAnswersObj[this.pageIndex]
+
+    // Question Text
+    const questionElement = document.getElementById("question");
+    questionElement.innerText = qaPairObj.questionText
+
+    // Answer Choices Text
+    const answerChoices = qaPairObj.answerChoices
+    console.log('Number of answer is ' + answerChoices.length);
+
+    for (let index = 0; index < answerChoices.length; index ++){
+    
+      const answerChoiceObj = answerChoices[index];
+
+      const identifier = "choice" + index;
+      const answerChoiceElement = document.getElementById(identifier)
+
+      answerChoiceElement.innerText = answerChoiceObj.answerText;
+    }
+  }
+
   // DisplayQASection
     // access to qaPairObject [questionText, answerChoicesText]
     // Question text
@@ -134,6 +161,9 @@ function QuizApplication(questionAnswersObj){
           // get referecne to "choice" + index
           // update inner-text for span element
 
+  this.displayProgressSection = function(){
+
+  }
   // DisplayprogressSection
 
   this.isLastQuestionAnswerPair = function() {
