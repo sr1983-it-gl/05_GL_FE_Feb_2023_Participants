@@ -92,6 +92,41 @@ function QuizApplication(questionAnswersObj){
   this.questionAnswersObj = questionAnswersObj;
   this.pageIndex = 0;
 
+  this.load = function(){
+
+    this.attachListeners();
+  }
+
+  this.attachListeners = function(){
+
+    const qaPairObj = 
+    this.questionAnswersObj[this.pageIndex]
+
+    const answerChoices = qaPairObj.answerChoices
+    console.log('Number of answer is ' + answerChoices.length);
+
+    for (let index = 0; index < answerChoices.length; index ++){
+
+      const buttonId = "btn" + index;
+
+      const answerChoiceButton = document.getElementById(buttonId);
+
+      answerChoiceButton.onclick = function(event){
+
+        const target = event.currentTarget
+        console.log('Button is clicked ' + target);
+      }
+    }
+  }
+
+  // addListeners
+    // 4
+    // for [0 4]
+      // button -> getElementById("btn" + index)
+      // buton.onclick(){
+          // console.log('clicked')
+      // }
+
   this.isLastQuestionAnswerPair = function() {
 
     if (this.pageIndex == (this.questionAnswersObj.length - 1)){
@@ -107,3 +142,4 @@ const javascriptQuizApp = new QuizApplication(
   [question1, question2, question3, question4, question5]
   // Code - Pass all the 5 question objects
 );
+javascriptQuizApp.load()
