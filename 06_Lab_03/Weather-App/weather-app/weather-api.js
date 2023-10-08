@@ -1,6 +1,4 @@
 
-
-
 // Define a constant for APP_ID
 const APP_ID = "fbc0ee13d4cd0ca7ed7b116299399f34";
 
@@ -22,6 +20,8 @@ class WeatherAPI {
     this.apiURL.searchParams.append("q", locationName);
     this.apiURL.searchParams.append("appid", APP_ID);
     this.apiURL.searchParams.append("units", UNITS);
+
+    console.log(this.apiURL.toString());
   }
 
   invokeURL(){
