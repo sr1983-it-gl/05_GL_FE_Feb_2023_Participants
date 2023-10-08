@@ -12,5 +12,12 @@ function testConstructURL(){
 
 }
 
+function testInvokeURL() {
+
+  // object for weather-api
+  // call invokeURL()
+  // print (json)
+}
 
 testConstructURL();
+

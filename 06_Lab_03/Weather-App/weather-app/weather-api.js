@@ -24,7 +24,11 @@ class WeatherAPI {
     console.log(this.apiURL.toString());
   }
 
-  invokeURL(){
+  async invokeURL(){
+
+    // response = await fetch()
+    //  response.json()
+    // return json
 
   }
 }
