@@ -28,3 +28,5 @@ class WeatherAPI {
 
   }
 }
+
+export {WeatherAPI}
