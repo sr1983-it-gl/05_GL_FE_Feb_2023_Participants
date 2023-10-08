@@ -30,6 +30,25 @@ class WeatherAPI {
     const responseJSON = await responseObj.json()
     return responseJSON;
   }
+
+   invokeURL2(){
+
+    const responseObj = fetch(this.apiURL.toString()) // 10.30:30
+      .then( (response) => { // 10:30:35
+        return response.json()
+      })
+      .then( (responseJSON) => {
+        return responseJSON
+      })
+      .catch( (error) => {
+
+        console.log("Error accessing the API " + error);
+
+      })
+
+    return responseObj;
+  }
+
 }
 
 export {WeatherAPI}
