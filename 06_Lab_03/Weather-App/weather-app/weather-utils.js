@@ -5,7 +5,7 @@ class WeatherUtils {
   static convertResponse(responseJSON){
 
     const weatherResponse = {
-      LOCATION : responseJSON.name,
+      LOCATION : `${responseJSON.name}, ${responseJSON.sys.country}`,
       DATE: WeatherUtils.getTodayDate(),
       TEMPERATURE : responseJSON.main.temp,
       TEMPERATURE_TYPE : responseJSON.weather[0].main,
