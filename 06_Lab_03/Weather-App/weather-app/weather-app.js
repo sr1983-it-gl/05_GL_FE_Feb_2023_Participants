@@ -11,6 +11,21 @@ class WeatherApp {
 
   addListeners(){
 
+    //
+
+    const allElements = document.getElementsByClassName("city");
+
+    for (let index = 0; index < allElements.length; index ++){
+
+      console.log("For each element");
+
+      const element = allElements[index];
+      console.log(element);
+
+    }
+
+    //
+
     const searchTextFieldElement = document.querySelector(".search-box")
 
     searchTextFieldElement.addEventListener("keypress", (event) => {
