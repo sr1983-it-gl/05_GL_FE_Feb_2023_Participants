@@ -1,40 +1,28 @@
 import CartModel, { CartItemModel } from "../cart"
+import { ProductModel } from "../products";
 import { CartView } from "./CartView"
+import { PricesView } from "./PricesView";
 
-import products from "../products";
+type CartManagerModel = {
 
-const CartManager = () => {
+  cart: CartModel;
+  addToCart : (productItem : ProductModel) => void 
+  removeFromCart : (productItem : ProductModel) => void 
 
-  const testDefaultCart = () => {
+}
 
-    const testCartItemsModel : CartItemModel[] = [
-
-      {
-        product: products[0],
-        quantity : 5      
-      },
-      {
-        product: products[1],
-        quantity : 3,      
-      },
-      {
-        product: products[2],
-        quantity : 7      
-      }
-    ]
-
-    const testCartModel : CartModel = {
-
-      cartItemsModel : testCartItemsModel
-    }
-
-    return testCartModel;
-  }
+const CartManager = ({cart, addToCart, removeFromCart} : CartManagerModel) => {
 
   return (
     <div style={{backgroundColor : 'lightgreen'}}>
 
-        <CartView cartModel={testDefaultCart()}></CartView>
+        <h2>Cart Items</h2>
+
+        <hr/>
+
+        <CartView cartModel={cart} addToCart={addToCart} removeFromCart={removeFromCart}></CartView>
+
+        <PricesView cart={cart}></PricesView>
 
     </div>
   )

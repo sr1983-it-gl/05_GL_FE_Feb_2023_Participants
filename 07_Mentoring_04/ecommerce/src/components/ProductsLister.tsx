@@ -1,7 +1,13 @@
+import { ProductModel } from "../products"
 import { ProductsView } from "./ProductsView"
 
+type ProductsListerModel = {
 
-const ProductsLister = () => {
+  addToCart : (productItem : ProductModel) => void 
+  removeFromCart : (productItem : ProductModel) => void 
+}
+
+const ProductsLister = ({addToCart, removeFromCart} : ProductsListerModel) => {
 
   return (
     <div style={{backgroundColor : 'lightblue'}}>
@@ -9,7 +15,7 @@ const ProductsLister = () => {
       <h2>Products Display</h2>
       <hr/>
 
-      <ProductsView></ProductsView>
+      <ProductsView addToCart={addToCart} removeFromCart={removeFromCart}></ProductsView>
     </div>
   )
 }

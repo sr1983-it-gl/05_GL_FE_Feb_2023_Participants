@@ -4,12 +4,14 @@ import { ProductModel } from "../products";
 import { Card, Button, Col } from "react-bootstrap"
 
 type ProductViewModel = {
+
   product: ProductModel
+  addToCart : (productItem : ProductModel) => void 
+  removeFromCart : (productItem : ProductModel) => void 
+
 }
 
-const ProductView = (productViewModel: ProductViewModel) => {
-
-  const product = productViewModel.product
+const ProductView = ({product, addToCart, removeFromCart}: ProductViewModel) => {
 
   return (
 
@@ -21,7 +23,15 @@ const ProductView = (productViewModel: ProductViewModel) => {
           <Card.Text>
             {product.price}
           </Card.Text>
-          <Button variant="primary">Add To Cart</Button>
+
+          <Button variant="primary" onClick={ () => {
+            addToCart(product)
+          }}>Add To Cart</Button>
+
+        <Button variant="primary" onClick={ () => {
+            removeFromCart(product)
+          }}>Remove from Cart</Button>
+
         </Card.Body>
       </Card>
     </Col>

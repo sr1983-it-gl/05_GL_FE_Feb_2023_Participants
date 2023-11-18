@@ -1,10 +1,16 @@
 
-import products from "../products"
+import products, { ProductModel } from "../products"
 import { ProductView } from "./ProductView"
 
 import {Row} from "react-bootstrap"
 
-const ProductsView = () => {
+type ProductsViewModel = {
+
+  addToCart : (productItem : ProductModel) => void 
+  removeFromCart : (productItem : ProductModel) => void 
+}
+
+const ProductsView = ({addToCart, removeFromCart} : ProductsViewModel) => {
 
   return (
     <Row>
@@ -13,7 +19,7 @@ const ProductsView = () => {
         products.map( (productObj) => {
 
           return (
-            <ProductView product={productObj} ></ProductView>
+            <ProductView product={productObj} addToCart={addToCart} removeFromCart={removeFromCart}></ProductView>
           )
 
         })
