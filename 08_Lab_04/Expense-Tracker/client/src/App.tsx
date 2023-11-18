@@ -1,9 +1,10 @@
 import React from 'react';
+import { ExpenseTrackerHome } from './components/ExpenseTrackerHome';
 
 function App() {
   return (
     <div className="App">
-        Expense Tracker Application
+      {<ExpenseTrackerHome></ExpenseTrackerHome>}
     </div>
   );
 }
