@@ -1,48 +1,27 @@
-        console.log(`Add to Cart...`);
-        const matchingProduct = cart.cartItemsModel.find( (cartItemModel) => (
-            cartItemModel.product.id === productItem.id
-        ));    
+      const updatedCartItems : CartItemModel[] = [];
+        
+          cart.cartItemsModel.forEach((cartItem) => {
     
-        if (matchingProduct){
+            if (cartItem.product.id  === productItem.id){
     
-          const updatedCartItems  = cart.cartItemsModel.map((cartItem) => {
-    
-              if (cartItem.product.id === productItem.id){
-    
-                const updatedCartItem = {
-                  product : cartItem.product,
-                  quantity: cartItem.quantity + 1
-                }
-    
-                return updatedCartItem;
+              if (cartItem.quantity === 1){
+                // If Quantity is 1, then 'remove' wil make as 0
+                // So no need to add/copy it
               }else{
     
-                const newCartItem = {
+                let updatedCartItem : CartItemModel = {
                   product: cartItem.product,
-                  quantity: cartItem.quantity
-                }
-    
-                return newCartItem;
+                  quantity: cartItem.quantity - 1
+                }             
+                updatedCartItems.push(updatedCartItem);
               }
-            });
-    
-            const updatedCart : CartModel = {
-                cartItemsModel: updatedCartItems
-            } 
-    
-          setCart(updatedCart);
-        }else{
-    
-          const newCartItem = {
-            product: productItem, quantity: 1
-          }
-          
-          const updatedCartItems = 
-            [... cart.cartItemsModel, newCartItem ];
+            }else{
+              updatedCartItems.push(cartItem);
+            }
+          })
     
           const updatedCart : CartModel = {
-            cartItemsModel : updatedCartItems
+            cartItemsModel: updatedCartItems
           }
     
-          setCart(updatedCart);
-        }   
+          setCart(updatedCart);   
