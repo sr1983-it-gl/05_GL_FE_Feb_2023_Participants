@@ -1,7 +1,16 @@
 
 // type ExpensesByPayeesModel -> expenseItems
 
-const ExpensesByPayees = () => {
+import {Table} from "react-bootstrap"
+import IExpenseItem from "../models/expense";
+
+type ExpensesByPayeesModel = {
+
+  expenseItems : IExpenseItem[];
+
+}
+
+const ExpensesByPayees = ({expenseItems} : ExpensesByPayeesModel) => {
 
   const getAllPayeeNames = () : string[] => {
 
@@ -50,23 +59,40 @@ const ExpensesByPayees = () => {
   return (
     <div>
 
-      {/* Bring the Table
+        <h2>Expenses By Payees - Summary</h2>
 
-        <thead>
-          <
-        </thead>
+      <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Payee Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {
+              getAllPayeeNames().map( (payeeName, index) => {
 
-        <tbody>
+                  return (
+                    <tr>
+                      <td>{(index + 1)}</td>
+                      <td>{payeeName}</td>
+                      <td>{getTotalContributedAmount(payeeName)}</td>
+                    </tr>
+                  )
+              })
+            }
 
-        {
-          <tr>
-          <tr>
-        }
+            <tr>
+              <td></td>
+              <td>Grand Total</td>
+              <td>{getGrandTotalExpenses()}</td>
+            </tr>
+          </tbody>
 
-        <tr>
-        </tr>
-        </tbody>
-      */}
+        </Table>      
+
 
     </div>
   )
