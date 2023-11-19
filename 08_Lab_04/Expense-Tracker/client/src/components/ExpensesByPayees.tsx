@@ -4,6 +4,8 @@
 import {Table} from "react-bootstrap"
 import IExpenseItem from "../models/expense";
 
+import {getAllPayeeNames, getTotalContributedAmount, getGrandTotalExpenses} from "../services/expense-utils"
+
 type ExpensesByPayeesModel = {
 
   expenseItems : IExpenseItem[];
@@ -12,54 +14,10 @@ type ExpensesByPayeesModel = {
 
 const ExpensesByPayees = ({expenseItems} : ExpensesByPayeesModel) => {
 
-  const getAllPayeeNames = () : string[] => {
-
-    const uniquePayeeNames : string[] = [];
-  
-    expenseItems.forEach( (expenseItem) => {
-  
-      let payeeName = expenseItem.payeeName;
-      if (!uniquePayeeNames.includes(payeeName)){
-  
-        uniquePayeeNames.push(payeeName);
-      }
-    })
-  
-    return uniquePayeeNames;
-  } 
-
-
-  const getTotalContributedAmount = (payeeName : string) => {
-
-    let totalExpense = 0;
-
-    expenseItems.forEach((expenseItem) => {
-
-      if (expenseItem.payeeName === payeeName){
-        totalExpense += expenseItem.price;
-      }
-    })
-
-    return totalExpense;
-
-  }
-
-  const getGrandTotalExpenses = () => {
-
-    let totalExpense = 0;
-
-    expenseItems.forEach((expenseItem) => {
-
-        totalExpense += expenseItem.price;
-    })
-    return totalExpense;   
-
-  }
-
   return (
     <div>
 
-        <h2>Expenses By Payees - Summary</h2>
+        <h3>Payee View</h3>
 
       <Table striped bordered hover>
           <thead>
@@ -72,13 +30,13 @@ const ExpensesByPayees = ({expenseItems} : ExpensesByPayeesModel) => {
           
           <tbody>
             {
-              getAllPayeeNames().map( (payeeName, index) => {
+              getAllPayeeNames(expenseItems).map( (payeeName, index) => {
 
                   return (
                     <tr>
                       <td>{(index + 1)}</td>
                       <td>{payeeName}</td>
-                      <td>{getTotalContributedAmount(payeeName)}</td>
+                      <td>{getTotalContributedAmount(payeeName, expenseItems)}</td>
                     </tr>
                   )
               })
@@ -87,7 +45,7 @@ const ExpensesByPayees = ({expenseItems} : ExpensesByPayeesModel) => {
             <tr>
               <td></td>
               <td>Grand Total</td>
-              <td>{getGrandTotalExpenses()}</td>
+              <td>{getGrandTotalExpenses(expenseItems)}</td>
             </tr>
           </tbody>
 

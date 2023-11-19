@@ -53,6 +53,7 @@ const ExpenseItemsLister = ({expenseItems} : ExpenseItemsListerModel) => {
   return (
     <div>
 
+      <h3>Expenses View</h3>
       <Table striped bordered hover>
           <thead>
             <tr>

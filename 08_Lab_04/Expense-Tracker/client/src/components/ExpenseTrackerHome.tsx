@@ -7,6 +7,7 @@ import { Container } from "react-bootstrap"
 import {useState} from "react"
 import IExpenseItem from "../models/expense"
 import { ExpensesByPayees } from "./ExpensesByPayees"
+import { PendingExpensesByPayees } from "./PendingExpensesByPayees"
 
 const ExpenseTrackerHome = () => {
 
@@ -48,6 +49,7 @@ const ExpenseTrackerHome = () => {
 
       <ExpensesByPayees expenseItems={expenseItems}></ExpensesByPayees>
 
+      <PendingExpensesByPayees></PendingExpensesByPayees>
     </Container>
   )
 }
