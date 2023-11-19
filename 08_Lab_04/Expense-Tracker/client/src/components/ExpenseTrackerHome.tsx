@@ -6,8 +6,12 @@ const ExpenseTrackerHome = () => {
 
   useEffect( () => {
 
-    const getAllExpenseItemsInvoker = () =>  {
+    const getAllExpenseItemsInvoker = async () =>  {
 
+      const response = await getAllExpenseItems();
+
+      console.log("Response is");
+      console.log(response);
       // Call the function - getAllExpenseItems
       // await / async
       // log data
@@ -16,7 +20,7 @@ const ExpenseTrackerHome = () => {
     }
 
     getAllExpenseItemsInvoker();
-  })
+  }, [])
 
   return (
     <div>
