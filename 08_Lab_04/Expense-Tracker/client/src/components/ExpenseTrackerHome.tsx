@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { getAllExpenseItems } from "../services/expense-service"
 import { ExpenseItemsLister } from "./ExpenseItemsLister"
 
+import { Container } from "react-bootstrap"
 
 const ExpenseTrackerHome = () => {
 
@@ -24,13 +25,13 @@ const ExpenseTrackerHome = () => {
   }, [])
 
   return (
-    <div>
+    <Container>
 
       <h2>Expense Application</h2>
 
       <ExpenseItemsLister></ExpenseItemsLister>
 
-    </div>
+    </Container>
   )
 }
 

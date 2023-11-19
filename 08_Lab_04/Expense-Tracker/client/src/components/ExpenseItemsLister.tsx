@@ -26,6 +26,14 @@ const ExpenseItemsLister = () => {
     },
   ]
 
+  const getExpenseItems = () => {
+    return testExpenseItems;
+  }
+
+  const formatDate = (dateObj : Date) => {
+    
+    return dateObj.toDateString()
+  }
 
   return (
     <div>
@@ -34,24 +42,32 @@ const ExpenseItemsLister = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
+              <th>Expense Description</th>
+              <th>Payee Name</th>
+              <th>Expense Date</th>
+              <th>Price</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
+
+            {
+                getExpenseItems().map( (expenseItem, index) => {
+
+                  return (
+
+                    <tr>
+                      <td>{(index + 1)}</td>
+                      <td>{expenseItem.expenseDescription}</td>
+                      <td>{expenseItem.payeeName}</td>
+                      <td>{formatDate(expenseItem.date)}</td>
+                      <td>{expenseItem.price}</td>
+                    </tr>
+      
+                  )
+                })
+            }
+
+            
           </tbody>
         </Table>      
 
