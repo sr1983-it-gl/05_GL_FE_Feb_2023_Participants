@@ -8,6 +8,7 @@ import {useState} from "react"
 import IExpenseItem from "../models/expense"
 import { ExpensesByPayees } from "./ExpensesByPayees"
 import { PendingExpensesByPayees } from "./PendingExpensesByPayees"
+import { ExpenseCreator } from "./ExpenseCreator"
 
 const ExpenseTrackerHome = () => {
 
@@ -44,6 +45,8 @@ const ExpenseTrackerHome = () => {
     <Container>
 
       <h2>Expense Application</h2>
+
+      <ExpenseCreator></ExpenseCreator>
 
       <ExpenseItemsLister expenseItems={expenseItems}></ExpenseItemsLister>
 
