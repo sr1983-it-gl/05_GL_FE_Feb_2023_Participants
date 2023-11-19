@@ -1,27 +1,46 @@
-      const updatedCartItems : CartItemModel[] = [];
-        
-          cart.cartItemsModel.forEach((cartItem) => {
-    
-            if (cartItem.product.id  === productItem.id){
-    
-              if (cartItem.quantity === 1){
-                // If Quantity is 1, then 'remove' wil make as 0
-                // So no need to add/copy it
-              }else{
-    
-                let updatedCartItem : CartItemModel = {
-                  product: cartItem.product,
-                  quantity: cartItem.quantity - 1
-                }             
-                updatedCartItems.push(updatedCartItem);
-              }
-            }else{
-              updatedCartItems.push(cartItem);
-            }
-          })
-    
-          const updatedCart : CartModel = {
-            cartItemsModel: updatedCartItems
-          }
-    
-          setCart(updatedCart);   
+const getAllPayeeNames = () : string[] => {
+
+  const uniquePayeeNames : string[] = [];
+
+  expenseItems.forEach( (expenseItem) => {
+
+    let payeeName = expenseItem.payeeName;
+    if (!uniquePayeeNames.includes(payeeName)){
+
+      uniquePayeeNames.push(payeeName);
+    }
+  })
+
+  return uniquePayeeNames;
+} 
+
+
+
+
+ const getTotalExpenseByPayee = (payeeName : string) => {
+
+    let totalExpense = 0;
+
+    expenseItems.forEach((expenseItem) => {
+
+      if (expenseItem.payeeName === payeeName){
+        totalExpense += expenseItem.price;
+      }
+    })
+
+    return totalExpense;
+  }  
+
+
+
+
+  const getGrandTotalExpenses = () => {
+
+    let totalExpense = 0;
+
+    expenseItems.forEach((expenseItem) => {
+
+        totalExpense += expenseItem.price;
+    })
+    return totalExpense;    
+  }
