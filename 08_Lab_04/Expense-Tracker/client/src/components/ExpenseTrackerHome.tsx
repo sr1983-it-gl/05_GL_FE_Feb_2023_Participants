@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { getAllExpenseItems } from "../services/expense-service"
+import { ExpenseItemsLister } from "./ExpenseItemsLister"
 
 
 const ExpenseTrackerHome = () => {
@@ -24,7 +25,11 @@ const ExpenseTrackerHome = () => {
 
   return (
     <div>
-      Expense Tracker Home
+
+      <h2>Expense Application</h2>
+
+      <ExpenseItemsLister></ExpenseItemsLister>
+
     </div>
   )
 }
