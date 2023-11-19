@@ -49,7 +49,7 @@ const ExpenseTrackerHome = () => {
 
       <ExpensesByPayees expenseItems={expenseItems}></ExpensesByPayees>
 
-      <PendingExpensesByPayees></PendingExpensesByPayees>
+      <PendingExpensesByPayees expenseItems={expenseItems}></PendingExpensesByPayees>
     </Container>
   )
 }
