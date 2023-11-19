@@ -12,29 +12,45 @@ const ExpenseCreator = () => {
 
   const createExpenseModalBody = () => {
 
-      return (
+    return (
 
-        <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+      <Form>
+
+        <Form.Group className="mb-3" controlId="expenseDescription">
+          <Form.Label>Expense Description</Form.Label>
+          <Form.Control type="text" placeholder="Enter expense description" />
         </Form.Group>
-  
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+
+        <Form.Group className="mb-3" controlId="payeeName">
+          <Form.Label>Payee Name</Form.Label>
+
+          <Form.Select aria-label="Default select example">
+            <option>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </Form.Select>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+
+        <Form.Group className="mb-3" controlId="price">
+          <Form.Label>Price</Form.Label>
+          <Form.Control type="number" placeholder="Enter expense price" />
         </Form.Group>
+
+        <Form.Group className="mb-3" controlId="expenseDate">
+          <Form.Label>Expense Date</Form.Label>
+          <Form.Control type="date" placeholder="Enter expense price" />
+        </Form.Group>
+
         <Button variant="primary" type="submit">
-          Submit
+          New Expense
         </Button>
-      </Form>        
-      )
+
+        <Button variant="secondary" onClick={handleClose}>
+            Close
+        </Button>
+      </Form>
+    )
   }
 
   return (
@@ -47,21 +63,12 @@ const ExpenseCreator = () => {
       <Modal show={show} onHide={handleClose}>
 
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>New Expense</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-            {createExpenseModalBody()}
+          {createExpenseModalBody()}
         </Modal.Body>
-
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
 
       </Modal>
     </div>
