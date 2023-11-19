@@ -4,21 +4,21 @@
         "expenseDescription": "Internet Expenses",
         "payeeName": "Ramesh",
         "price": 1100,
-        "date": "2023-02-26T00:00:00.000Z",
+        "date": "2021-05-26T00:00:00.000Z",
         "id": 1
       },
       {
         "expenseDescription": "Bike Maintainence Expenses",
         "payeeName": "Rahul",
         "price": 3500,
-        "date": "2023-02-26T00:00:00.000Z",
+        "date": "2020-04-16T00:00:00.000Z",
         "id": 2
       },
       {
         "expenseDescription": "Electricity Bill - Nov Month",
         "payeeName": "Ramesh",
         "price": 2200,
-        "date": "2023-02-26T00:00:00.000Z",
+        "date": "2022-08-06T00:00:00.000Z",
         "id": 3
       },
       {
@@ -34,6 +34,13 @@
         "price": 920,
         "date": "2023-02-26T00:00:00.000Z",
         "id": 5
+      },
+      {
+        "expenseDescription": "Expense-Entry-06",
+        "payeeName": "Ramesh",
+        "price": 666,
+        "date": "2016-06-06T00:00:00.000Z",
+        "id": 6
       }
     ]
   }

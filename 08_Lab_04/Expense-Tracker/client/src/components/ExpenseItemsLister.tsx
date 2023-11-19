@@ -2,12 +2,24 @@
 import { Table } from "react-bootstrap"
 import IExpenseItem from "../models/expense"
 
-const ExpenseItemsLister = () => {
+// TODO
+  // Define a Local Model 
+    // ExpenseItemsListerModel
+      // expenseItems  
+    // Update getExpenseItems to return real "expenseItems"
+
+type ExpenseItemsListerModel = {
+
+  expenseItems : IExpenseItem[];
+}
+
+const ExpenseItemsLister = ({expenseItems} : ExpenseItemsListerModel) => {
 
   // TODO
     // Change the table Headers 
     // Update <tr> to contain expense-item
     // Update Table code and surround <tr> within a loop
+
 
   const testExpenseItems : IExpenseItem[] = [
     {
@@ -27,12 +39,15 @@ const ExpenseItemsLister = () => {
   ]
 
   const getExpenseItems = () => {
-    return testExpenseItems;
+    return expenseItems;
   }
 
-  const formatDate = (dateObj : Date) => {
+  const formatDate = (dateObjFromServer : Date) => {
     
-    return dateObj.toDateString()
+    const dateObj = new Date(dateObjFromServer);
+
+    return dateObj.getDate() + "-" + (dateObj.getMonth() + 1) + "-"
+      + dateObj.getFullYear();
   }
 
   return (

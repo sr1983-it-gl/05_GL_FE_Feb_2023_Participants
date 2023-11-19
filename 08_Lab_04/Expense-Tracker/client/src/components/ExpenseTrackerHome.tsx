@@ -4,7 +4,18 @@ import { ExpenseItemsLister } from "./ExpenseItemsLister"
 
 import { Container } from "react-bootstrap"
 
+import {useState} from "react"
+import IExpenseItem from "../models/expense"
+
 const ExpenseTrackerHome = () => {
+
+  // TODO
+    // Define expenseItems as a state [useState]
+      // const [expenseItems, ] = useState()
+    // Update reference to ExpenseItemsLister to pass the 'expenseItems'
+
+  const [expenseItems, setExpenseItems] 
+    = useState<IExpenseItem[]>([])
 
   useEffect( () => {
 
@@ -14,6 +25,9 @@ const ExpenseTrackerHome = () => {
 
       console.log("Response is");
       console.log(response);
+
+      setExpenseItems(response);
+
       // Call the function - getAllExpenseItems
       // await / async
       // log data
@@ -29,7 +43,7 @@ const ExpenseTrackerHome = () => {
 
       <h2>Expense Application</h2>
 
-      <ExpenseItemsLister></ExpenseItemsLister>
+      <ExpenseItemsLister expenseItems={expenseItems}></ExpenseItemsLister>
 
     </Container>
   )
