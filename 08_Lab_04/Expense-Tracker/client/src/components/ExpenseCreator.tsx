@@ -16,9 +16,10 @@ import {createNewExpenseItem} from "../services/expense-service"
 type ExpenseCreatorModel = {
 
   expenseItems : IExpenseItem[];
+  refresh : (newExpenseItem : IExpenseItem) => void
 }
 
-const ExpenseCreator = ({expenseItems} : ExpenseCreatorModel) => {
+const ExpenseCreator = ({expenseItems, refresh} : ExpenseCreatorModel) => {
 
   const [show, setShow] = useState(false);
 
@@ -69,6 +70,10 @@ const ExpenseCreator = ({expenseItems} : ExpenseCreatorModel) => {
     }
 
     const response = await createNewExpenseItem(newExpenseItemObj)
+
+    // Point - New Expense Created
+
+    refresh(response)
 
     console.log("Response is");
     console.log(response);

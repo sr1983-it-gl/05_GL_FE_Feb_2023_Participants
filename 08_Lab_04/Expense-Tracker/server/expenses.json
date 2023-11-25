@@ -55,6 +55,13 @@
       "price": 888,
       "date": "2023-11-08T00:00:00.000Z",
       "id": 8
+    },
+    {
+      "expenseDescription": "expense-9",
+      "payeeName": "Ramesh",
+      "price": 999,
+      "date": "2023-11-09T00:00:00.000Z",
+      "id": 9
     }
   ]
 }
