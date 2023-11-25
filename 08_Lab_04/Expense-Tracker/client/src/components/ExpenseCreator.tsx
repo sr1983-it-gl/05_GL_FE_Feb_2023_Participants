@@ -57,7 +57,12 @@ const ExpenseCreator = ({expenseItems} : ExpenseCreatorModel) => {
       console.log(expenseDate);
 
       // Server Method
-      
+
+      // Call the  createNewExpense
+      // Create object of type IExpenseCreateItem
+      // Log the response
+      // Response [id attribute -> unique value]
+
       handleClose();
     }
 
