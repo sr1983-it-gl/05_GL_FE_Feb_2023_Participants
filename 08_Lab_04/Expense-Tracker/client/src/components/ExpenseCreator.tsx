@@ -21,6 +21,13 @@ const ExpenseCreator = ({expenseItems} : ExpenseCreatorModel) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // Add support for onSubmit
+  // handleFormSubmission / handleNewExpense
+  // Usage of useRef hooks [4]
+ // Implementation of handleNewExpense -> 
+ // print to console
+ // Final line of code - handleClose
+
   const createExpenseModalBody = () => {
 
     return (
