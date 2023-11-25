@@ -2,11 +2,13 @@
 import { Button, Modal, Form } from "react-bootstrap";
 
 import { useState } from "react"
-import IExpenseItem from "../models/expense";
+import IExpenseItem, { IExpenseCreateItem } from "../models/expense";
 
 import {getAllPayeeNames} from "../services/expense-utils";
 
 import {FormEvent, useRef} from "react"
+
+import {createNewExpenseItem} from "../services/expense-service"
 
 // Addition of local type to receive the prop 'expenseItems'
 // Add a dynamic block for Form.Select - call getAllPayeeNames()
@@ -35,36 +37,51 @@ const ExpenseCreator = ({expenseItems} : ExpenseCreatorModel) => {
  // print to console
  // Final line of code - handleClose
 
-  const createExpenseModalBody = () => {
+  const handleExpenseCreate = async (event : FormEvent<HTMLFormElement>) => {
 
-    const handleExpenseCreate = (event : FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-      event.preventDefault();
+    const expenseDescription =
+      (expenseDescriptionRef?.current?.value as string) 
+    
+    const payeeName = 
+      (payeeNameRef?.current?.value as string)
 
-      const expenseDescription =
-        expenseDescriptionRef?.current?.value 
-      
-      const payeeName = payeeNameRef?.current?.value
+    const price =
+      parseFloat((priceRef?.current?.value as string));
 
-      const price = priceRef?.current?.value;
+    const expenseDate 
+      = new Date((expenseDateRef?.current?.value as string));
 
-      const expenseDate = expenseDateRef?.current?.value
+    console.log("Collected data ")
+    console.log(expenseDescription);
+    console.log(payeeName);
+    console.log(price);
+    console.log(expenseDate);
 
-      console.log("Collected data ")
-      console.log(expenseDescription);
-      console.log(payeeName);
-      console.log(price);
-      console.log(expenseDate);
+    // Server Method
 
-      // Server Method
-
-      // Call the  createNewExpense
-      // Create object of type IExpenseCreateItem
-      // Log the response
-      // Response [id attribute -> unique value]
-
-      handleClose();
+    const newExpenseItemObj : IExpenseCreateItem = {
+      expenseDescription : expenseDescription,
+      payeeName : payeeName,
+      price : price,
+      date : expenseDate
     }
+
+    const response = await createNewExpenseItem(newExpenseItemObj)
+
+    console.log("Response is");
+    console.log(response);
+
+    // Call the  createNewExpense
+    // Create object of type IExpenseCreateItem
+    // Log the response
+    // Response [id attribute -> unique value]
+
+    handleClose();
+  }
+
+  const createExpenseModalBody =  () => {
 
     return (
 
