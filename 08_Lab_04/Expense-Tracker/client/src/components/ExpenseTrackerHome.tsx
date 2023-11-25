@@ -10,6 +10,7 @@ import { ExpensesByPayees } from "./ExpensesByPayees"
 import { PendingExpensesByPayees } from "./PendingExpensesByPayees"
 import { ExpenseCreator } from "./ExpenseCreator"
 
+
 const ExpenseTrackerHome = () => {
 
   // TODO
@@ -46,7 +47,7 @@ const ExpenseTrackerHome = () => {
 
       <h2>Expense Application</h2>
 
-      <ExpenseCreator></ExpenseCreator>
+      <ExpenseCreator expenseItems={expenseItems}></ExpenseCreator>
 
       <ExpenseItemsLister expenseItems={expenseItems}></ExpenseItemsLister>
 
