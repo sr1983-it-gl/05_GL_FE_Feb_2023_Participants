@@ -1,6 +1,7 @@
 
 
 import axios from "axios";
+import { IExpenseCreateItem } from "../models/expense";
 
 const getAllExpenseItems = async () => {
 
@@ -9,8 +10,16 @@ const getAllExpenseItems = async () => {
   return response.data;
 }
 
-const createNewExpenseItem = () => {
+const createNewExpenseItem = async (newExpenseObj : IExpenseCreateItem) => {
 
+  const response = await axios.post(
+    "http://localhost:4000/expenses", newExpenseObj, {
+      headers : {
+        'Content-Type' : 'application/json'
+      }
+    })
+
+  return response.data;  
 }
 
 export {getAllExpenseItems, createNewExpenseItem}

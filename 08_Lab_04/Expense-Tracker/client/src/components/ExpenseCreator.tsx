@@ -56,6 +56,8 @@ const ExpenseCreator = ({expenseItems} : ExpenseCreatorModel) => {
       console.log(price);
       console.log(expenseDate);
 
+      // Server Method
+      
       handleClose();
     }
 
